@@ -1,3 +1,26 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<header class="header_top">
+    <div class="my_blog">
+        <div class="my_blog_logo"><a href="/dashboard">OPTION MENU</a></div>
+    </div>
+</header>
+<div class="containers">
+    <p class="lead mb-3" style="font-size: 35px">Welcome <%= user.name %></p>
+    <a href="/users/logout" class="btn btn-secondary" style="margin-right: 20px; color: white;background-color: #20639B;
+    border-color: #20639B;">Logout</a>
+    <a href="/persons" class="btn btn-secondary" style="color: white;background-color: #20639B;
+    border-color: #20639B;">Persons</a>
+</div>
+</body>
+</html>
+

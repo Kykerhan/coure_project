@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person List</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+<header class="header_top">
+    <div class="my_blog" style="margin-bottom: 40px">
+        <div class="my_blog_logo"><a href="">Persons List</a></div>
+    </div>
+</header>
+<div class="container">
+    <% if(persons.length > 0) { %>
+        <% console.log("persons = " + persons.length); %>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Person Name</th>
+                <th scope="col">Position</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <% for(var i = 0; i < persons.length;i++) { %>
+                <tr>
+                    <td>
+                        <a href="/persons/show/<%= persons[i]._id %>"><%= persons[i].surname + " " + persons[i].name %></a>
+                    </td>
+                    <td><%= persons[i].position %></td>
+                    <td><%= persons[i].email %></td>
+                    <td><%= persons[i].phone %></td>
+                    <td><%= persons[i].address %></td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <div>No persons found.</div>
+    <% } %>
+    <% if (admin) { %>
+        <div class="flex-down">
+            <a href="/persons/create" class="btn btn-primary" style="background-color: #20639B;
+               border-color: #20639B; margin-right: 20px; color: white">Create Person</a>
+            <a href="/dashboard" class="btn btn-primary" style="background-color: #20639B;
+               border-color: #20639B; color: white">Main</a>
+        </div>
+    <% } %>
+</div>
+
+<div class="akeconsa-udaneles">
+    <a href="#" title="Поднять страницы на сайтах вверх"><span class="fas fa-angle-up"></span></a>
+</div>
+</body>
+</html>

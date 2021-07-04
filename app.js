@@ -6,17 +6,14 @@ const flash = require('connect-flash');
 const session = require('express-session');
 
 const app = express();
-
+const PORT = process.env.PORT || 3000;
 // Passport Config
 require('./config/passport')(passport);
-
-// DB Config
-const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose
   .connect(
-    db,
+      "mongodb://localhost/persons",
     { useNewUrlParser: true ,useUnifiedTopology: true}
   )
   .then(() => console.log('MongoDB Connected'))
@@ -25,7 +22,7 @@ mongoose
 // EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
-
+app.use(express.static(__dirname + '/public'));
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
 
@@ -56,7 +53,6 @@ app.use(function(req, res, next) {
 // Routes
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
-
-const PORT = process.env.PORT || 5000;
+app.use('/persons', require('./routes/persons.js'));
 
 app.listen(PORT, console.log(`Server running on  ${PORT}`));

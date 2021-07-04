@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+<header class="header_top">
+    <div class="my_blog" style="margin-bottom: 30px">
+        <div class="my_blog_logo"><a href="">Edit Person</a></div>
+    </div>
+</header>
+<div class="container">
+    <form action="/persons/update/<%= person._id %>" method="post">
+        <table class="table">
+            <tbody>
+            <tr>
+                <td><span class="input-group-text" id="inputGroup-sizing-default">Name</span></td>
+                <td><input type="text" name="name" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default" value="<%= person.name %>"></td>
+            </tr>
+            <tr>
+                <td><span class="input-group-text" id="inputGroup-sizing-default">Surname</span></td>
+                <td><input type="text" name="surname" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default" value="<%= person.surname %>"></td>
+            </tr>
+            <tr>
+                <td><span class="input-group-text" id="inputGroup-sizing-default">Email</span></td>
+                <td><input type="text" name="email" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default" value="<%= person.email %>"></td>
+            </tr>
+            <tr>
+                <td><span class="input-group-text" id="inputGroup-sizing-default">Address</span></td>
+                <td><input type="text" name="address" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default" value="<%= person.address %>"></td>
+            </tr>
+            <tr>
+                <td><span class="input-group-text" id="inputGroup-sizing-default">Phone</span></td>
+                <td><input type="text" name="phone" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default" value="<%= person.phone %>"></td>
+            </tr>
+            <tr>
+                <td><span class="input-group-text" id="inputGroup-sizing-default">Position</span></td>
+                <td><input type="text" name="position" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default" value="<%= person.position %>"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button style="width: 800px" ; type="submit" class="btn btn-success">Update</button>
+                    <a href="/persons" class="btn btn-primary" style="background-color: #20639B;
+               border-color: #20639B; color: white; margin-top: 20px;
+    width: 800px; ">Persons List</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</body>
+</html>

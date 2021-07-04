@@ -11,5 +11,16 @@ module.exports = {
       return next();
     }
     res.redirect('/dashboard');      
+  },
+  ensureAdmin: function (req, res, next){
+    if(req.user == undefined){
+      res.redirect('/users/login');
+    }
+    if(req.user.role === "admin"){
+      return next();
+    }else{
+      req.flash('error_msg', 'is not enough permissions');
+      res.redirect('/dashboard');
+    }
   }
 };
